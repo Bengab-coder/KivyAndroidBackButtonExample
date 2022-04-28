@@ -1,0 +1,36 @@
+<Label>:
+    halign:'center'
+    valign:'center'
+<Button>:
+    size_hint:None,None
+    size:100,50
+    pos_hint:{"center_x":0.5,"center_y":0.1}
+
+ScreenManager:
+    id:screen_manager
+
+    Screen:
+        id:scr_1
+        name:"screen_1"
+        Label:
+            text: 'This is screen 1'
+        Button:
+            text:"Next Screen"
+            on_release:
+                screen_manager.current = "screen_2"
+                app.screen_changed(scr_1)
+    Screen:
+        name:"screen_2"
+        id:scr_2
+        Label:
+            text: 'This is screen 2'
+        Button:
+            text:"Next Screen"
+            on_release:
+                screen_manager.current = "screen_3"
+                app.screen_changed(scr_2)
+    Screen:
+        id:scr_3
+        name:"screen_3"
+        Label:
+            text: 'This is screen 3 \n Press the back button to \n go back on android and the \nEsc key for thesame result on desktop'
